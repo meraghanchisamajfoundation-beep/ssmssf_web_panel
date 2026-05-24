@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     alignSelf: 'center',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    marginTop: 10,
+    marginTop: 20,
   },
   schemeText: {
     fontSize: 11,
@@ -440,14 +440,15 @@ const CertificateServerSide = ({data,selectedProgram}) => (
           </View>
 
           {/* Details Section */}
-          {
-            selectedProgram?.noteLine && <View style={styles.detailsSection}>
-            <Text style={{
-            }}>
-             {selectedProgram?.noteLine}
-            </Text>
-          </View>
-          }
+   {
+  selectedProgram?.noteLine?.trim() && (
+    <View style={styles.detailsSection}>
+      <Text>
+        {selectedProgram.noteLine}
+      </Text>
+    </View>
+  )
+}
        
 
           {/* Footer Section */}
