@@ -161,17 +161,17 @@ const styles = StyleSheet.create({
     minHeight: 16,
     textTransform:'capitalize'
   },
-  memberIdBox: {
-    position: 'absolute',
-    right: 40,
-    top: 150,
-    border: '1px solid #942A2C',
-    width: 80,
-    height: 80,
-    backgroundColor: '#fff',
-    borderRadius: 3,
-    overflow: 'hidden',
-  },
+memberIdBox: {
+  position: 'absolute',
+  right: 20,
+  top: 180,
+  border: '1px solid #942A2C',
+  width: 100,
+  height: 120, // passport size style
+  backgroundColor: '#fff',
+  borderRadius: 3,
+  overflow: 'hidden',
+},
   memberIdText: {
     fontSize: 8,
     textAlign: 'center',
