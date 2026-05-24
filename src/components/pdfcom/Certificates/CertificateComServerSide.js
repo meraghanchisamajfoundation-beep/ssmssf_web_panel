@@ -11,9 +11,12 @@ import {
 } from '@react-pdf/renderer';
 import NotoSansDevanagari from '@/app/api/helperfile/static/font/NotoSansDevanagari';
 import NotoSansDevanagariBold from '@/app/api/helperfile/static/font/NotoSansDevanagariBold';
-
 import logo from '@/app/api/helperfile/Images/logo';
-import { TrsutData } from '@/lib/constentData';
+import krinshnaImage from '@/app/api/helperfile/Images/KrinshnaImage';
+import certificateImg from '@/app/api/helperfile/Images/CertificateImg';
+import SingtureImg from '@/app/api/helperfile/Images/singImg';
+
+
 // Register Devanagari Font
 Font.register({
   family: 'NotoSansDevanagari',
@@ -31,33 +34,36 @@ Font.register({
 
 const styles = StyleSheet.create({
   page: {
-    backgroundColor: '#faf7ea',
+    backgroundColor: '#ffffff',
     fontFamily: 'NotoSansDevanagari',
-    padding: 10,
     width: '210mm',
     height: '148mm',
-  },
-  outerBorder: {
-    border: '2px solid #d4af37',
-    padding: 10,
-    height: '100%',
     position: 'relative',
   },
-  innerBorder: {
+  outerBorder: {
+    // border: '4px solid #d4af37',
+    // padding: 8,
     height: '100%',
+    width: '100%',
+    position: 'relative',
+    // borderRadius: 4,
+  },
+  innerBorder: {
+    // border: '2px solid #d4af37',
+    padding: 28,
+    height: '100%',
+    width: '100%',
     position: 'relative',
   },
   topText: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 4,
-    marginTop: 10,
-    paddingHorizontal: 30,
-
+    marginBottom: 8,
+    paddingHorizontal: 4,
   },
   smallText: {
     fontSize: 10,
-    color: '#000',
+    color: '#8B0000',
     fontWeight: 'bold',
     letterSpacing: 0.3,
   },
@@ -66,8 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 8,
-    paddingHorizontal: 10,
-  
+    paddingHorizontal: 4,
   },
   logoImage: {
     width: 68,
@@ -78,26 +83,14 @@ const styles = StyleSheet.create({
     width: 78,
     height: 68,
     borderRadius: 4,
-    position: 'absolute',
-    left: 10,
-     top: 10,
-  },
-    logoImage2: {
-    width: 78,
-    height: 68,
-    borderRadius: 4,
-    position: 'absolute',
-    right: 10,
-     top: 10,
   },
   centerContent: {
     flex: 1,
     alignItems: 'center',
     paddingHorizontal: 16,
-    marginLeft: 30,
   },
   mainTitle: {
-    fontSize: 30,
+    fontSize: 26,
     color: '#8B0000',
     fontWeight: 'bold',
     marginBottom: 4,
@@ -112,59 +105,57 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   address: {
-    fontSize: 10,
-    color: '#884a17',
+    fontSize: 9,
+    color: '#333',
     textAlign: 'center',
-    fontWeight: 'bold',
     marginBottom: 3,
     lineHeight: 1.3,
     paddingHorizontal: 10,
   },
   phoneNumbers: {
-    fontSize:10,
-    color: '#884a17',
-    fontWeight: 'bold',
-    marginBottom: 3,
-    letterSpacing: 0.2,
-  },
-  regNotext:{
     fontSize: 9,
     color: '#000',
     fontWeight: 'bold',
-    marginBottom: 3,
+    marginBottom: 5,
     letterSpacing: 0.2,
   },
   schemeBox: {
-    backgroundColor: '#1a0f5e',
+    backgroundColor: '#A81900',
     borderRadius: 14,
     paddingVertical: 3,
     paddingHorizontal: 14,
     alignSelf: 'center',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    marginTop: 10,
   },
   schemeText: {
-    fontSize: 16,
-    color: '#8B0000',
+    fontSize: 11,
+    color: '#fff',
     fontWeight: 'bold',
     letterSpacing: 0.4,
     marginTop: 2,
   },
   formSection: {
-    marginTop: 0,
-    paddingHorizontal: 4,
+    marginTop: 9,
+    paddingHorizontal: 10,
   },
-
+  row: {
+    flexDirection: 'row',
+    marginBottom: 7,
+    alignItems: 'center',
+    flexWrap: 'wrap',
+  },
   label: {
-    fontSize: 9.5,
-    color: '#000',
+    fontSize: 11,
+    color: '#942A2C',
     marginRight: 4,
-    fontWeight: 'normal',
+    fontWeight: 'bold',
   },
   value: {
-    fontSize: 10,
+    fontSize: 11,
     color: '#000',
     fontWeight: 'bold',
-    borderBottom: '1px dotted #000',
+    borderBottom: '1px dotted #942A2C',
     paddingBottom: 2,
     paddingHorizontal: 5,
     minHeight: 16,
@@ -172,11 +163,11 @@ const styles = StyleSheet.create({
   },
   memberIdBox: {
     position: 'absolute',
-    right: 0,
+    right: 40,
     top: 150,
-    border: '1px solid #884a17',
-    width: 90,
-    height: 100,
+    border: '1px solid #942A2C',
+    width: 80,
+    height: 80,
     backgroundColor: '#fff',
     borderRadius: 3,
     overflow: 'hidden',
@@ -202,9 +193,10 @@ const styles = StyleSheet.create({
     lineHeight: 1.4,
     paddingHorizontal: 6,
     paddingVertical: 4,
-    backgroundColor: '#fafafa',
+    
+    backgroundColor:'transparent',
     borderRadius: 2,
-    border: '0.5px solid #ddd',
+    // border: '0.5px solid #ddd',
   },
   footerSection: {
     flexDirection: 'row',
@@ -213,7 +205,7 @@ const styles = StyleSheet.create({
     // marginTop: 'auto',
     paddingHorizontal: 10,
     paddingTop: 8,
-        position:'relative'
+    marginTop: 15,
   },
   leftFooter: {
     flexDirection: 'column',
@@ -224,10 +216,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     width: '45%',
+    position:'relative',
   },
   footerLabel: {
-    fontSize: 9,
-    color: '#000',
+    fontSize: 11,
+    color: '#8B282B',
     marginTop:5,
     fontWeight: 'bold',
   },
@@ -235,7 +228,7 @@ const styles = StyleSheet.create({
     fontSize: 9.5,
     color: '#000',
     fontWeight: 'bold',
-    borderBottom: '1px dotted #000',
+    borderBottom: '1px dotted #8B282B',
     paddingBottom: 8,
     paddingTop: 1,
     minWidth: 140,
@@ -275,7 +268,7 @@ const styles = StyleSheet.create({
     top: '28mm',
     left: '42mm',
     width: '115mm',
-    height: '90mm',
+    height: '85mm',
     opacity: 0.08,
     zIndex: 0,
   },
@@ -291,229 +284,63 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginLeft: 2,
   },
-  corner: {
-  position: 'absolute',
-  width: 60,
-  height: 60,
-},
-
-topLeft: {
-  top: -2,
-  left: -2,
-  borderTop: '3px solid #d4af37',
-  borderLeft: '3px solid #d4af37',
-},
-
-topRight: {
-  top: -2,
-  right: -2,
-  borderTop: '3px solid #d4af37',
-  borderRight: '3px solid #d4af37',
-},
-
-bottomLeft: {
-  bottom: -2,
-  left: -2,
-  borderBottom: '3px solid #d4af37',
-  borderLeft: '3px solid #d4af37',
-},
-
-bottomRight: {
-  bottom: -2,
-  right: -2,
-  borderBottom: '3px solid #d4af37',
-  borderRight: '3px solid #d4af37',
-},
-borderHeader:{
-  width: '100%',
-  borderBottom: '2px solid #d4af37',
-  top:130,
-  position: 'absolute',
-  left: 0,
-},
-borderFooter:{
-  width: '100%',
-  borderBottom: '2px solid #d4af37',
-   position: 'absolute',
-  left: 0,  bottom: -30,
-},
-//new form
-schemeDateBox:{
-  flexDirection:'row',
-  justifyContent:'space-between',
-},
-formFields:{
-  alignItems:'center',
-  flexDirection:'row',
-  gap:5
-},
-LabelText:{
-  fontSize:12,
-  color:"#8B0000",
-  textAlign:'left'
-},
-ValueText:{
-  fontSize:12,
-  color:"#000",
-    textAlign:'left'
-},
-emtypBox:{
-  width:100
-},
-ContentSec:{
-  marginTop:10,
-  width:'70%'
-},
-
-  // Data rows
-  dataArea: {
-   width:'85%',
-    marginTop:5, // leave room for photo
-    paddingHorizontal:10,
-
-  },
-  row: {
-    flexDirection: 'row',
-    marginBottom: 5,
-    alignItems: 'center',
-        gap:5
-  },
-  fieldGroup: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-    gap: 4,
-  },
-  labelText: {
-    fontSize: 10.5,
-    color: '#8B0000',
-    fontWeight: 'bold',
-    minWidth: 80,
-  },
-  valueText: {
-    fontSize: 10.5,
-    color: '#000',
-    fontWeight: 'normal',
-    paddingBottom: 1,
-    flex: 1,
-    minWidth: 60,
-  },
-  // Special: kisht row spans full width
-  kishtRow: {
-    flexDirection: 'row',
-    marginBottom: 5,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap:10
-  },
-  kishtValue: {
-    fontSize: 10.5,
-    color: '#000',
-    fontWeight: 'bold',
-  },
-  footerLabelBox1:{
-    width:'100%',
-    position:'absolute',
-    bottom:-25
-,
-left:0,
-textAlign:'center'
-  },
-  footerLabelBox2:{
-        width:'100%',
-    position:'absolute',
-    bottom:-55
-,
-left:0,
-textAlign:'center'
-  },
-  signText:{
-    position:'absolute',
-    right:90,
-    bottom:-21,
-    fontSize:13,
-    color:'#000'
+  signImg: {
+    width: 110,
+    height: 40,
+    marginBottom: 2,
+  position:'absolute',
+   left:50,
+    top:-20,
   }
 });
-const calculateAge = (birthDate) => {
-  if (!birthDate) return 'N/A';
 
-  const [day, month, year] = birthDate.split('-').map(Number);
-  const dob = new Date(year, month - 1, day);
-  const today = new Date();
-
-  let years = today.getFullYear() - dob.getFullYear();
-  let months = today.getMonth() - dob.getMonth();
-
-  // Adjust if current date is before birth date in the month
-  if (today.getDate() < dob.getDate()) {
-    months--;
-  }
-
-  // If months negative, adjust year and months
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  return `${years} Years ${months} Months`;
-};
 const CertificateServerSide = ({data,selectedProgram}) => (
   <Document>
     <Page size={{ width: '210mm', height: '148mm' }} style={styles.page}>
-      <View style={styles.outerBorder}>
-    {/* Corner Borders */}
-          <View style={[styles.borderHeader]} />
+   
+        <View style={styles.outerBorder}>
+           <Image src={certificateImg} style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '210mm',
+      height: '148mm',
+      zIndex: -1,
+    }} />
+        {/* <Text style={styles.serialNumber}>{data?.registrationNumber}</Text> */}
         <View style={styles.innerBorder}>
-          <View style={[styles.corner, styles.topLeft]} />
-<View style={[styles.corner, styles.topRight]} />
-<View style={[styles.corner, styles.bottomLeft]} />
-<View style={[styles.corner, styles.bottomRight]} />
           {/* Top Text */}
-             <View style={styles.topText}>
-             {
-                    TrsutData.topTitle.map((text, index) => (
-                      <Text key={index} style={styles.smallText}>{text}</Text>
-                    ))
-                  }
-       
-          </View> 
+  
 
-          {/* Watermark */}
-          <Image 
-            src={TrsutData.logo || logo} 
-            style={styles.watermark}
-          />
+       
 
           {/* Header Section */}
-          <View style={styles.headerSection}>
-  <Image 
-              src={TrsutData.logo || logo}  
-              style={styles.logoImage1}
-            />
-                 <View style={styles.centerContent}>
-              <Text style={styles.mainTitle}>{TrsutData?.name}</Text>
+          {/* <View style={styles.headerSection}>
+            
+         
+            
+            <View style={styles.centerContent}>
+              <Text style={styles.mainTitle}>श्री साँवलाजी सेवा संस्थान</Text>
+              <Text style={styles.subTitle}>अहमदाबाद-गुजरात</Text>
               <Text style={styles.address}>
-           {TrsutData?.address}
+                20/2, शिवम् फ्लेट, आनंद फ्लेट पुलिस चौकी के पास, बापूनगर, अहमदाबाद
               </Text>
               <Text style={styles.phoneNumbers}>
-         {TrsutData?.contact}
+                9723878021 / 8511878021 / 9408323975
               </Text>
-               <Text style={styles.regNotext}>
-          Regd No. {TrsutData?.regNo}
-              </Text>
-              {/* <View style={styles.schemeBox}>
+              <View style={styles.schemeBox}>
                 <Text style={styles.schemeText}>{selectedProgram?.hiname}</Text>
-              </View> */}
+              </View>
             </View>
-              <Image 
-              src={TrsutData.logo || logo}  
-              style={styles.logoImage2}
-            />
 
-          
-          </View>
+        
+          </View> */}
+       <View style={{
+        height:110,
+        width:'100%',
+       }}>
 
+       </View>
           {/* Member ID Box */}
           <View style={styles.memberIdBox}>
             {data?.photoURL ? (
@@ -524,178 +351,121 @@ const CertificateServerSide = ({data,selectedProgram}) => (
               </View>
             )}
           </View>
-
+         <View style={styles.schemeBox}>
+                <Text style={styles.schemeText}>{selectedProgram?.hiname} प्रमाण पत्र</Text>
+              </View>
           {/* Form Section */}
           <View style={styles.formSection}>
             {/* Row 1 */}
-          
-           <View style={styles.schemeDateBox}>
-           <View style={styles.emtypBox}></View>
-            <Text style={styles.schemeText}>{selectedProgram?.hiname} प्रमाण पत्र</Text>
-            <View style={styles.formFields}>
-             <Text style={styles.LabelText} >दिनांक :</Text>
-             <Text style={styles.ValueText} >{data?.dateJoin}</Text>
+            <View style={[styles.row,{
+              justifyContent:'space-between',
+              marginRight:55
+            }]}>
+              <View style={styles.fieldGroup}>
+                <Text style={styles.label}>सदस्यता क्रमांक:</Text>
+                <Text style={[styles.value, { minWidth: 90 }]}>{data?.registrationNumber || '---'}</Text>
+              </View>
+              <View style={[styles.fieldGroup, { marginLeft: 20,marginRight:40 }]}>
+                <Text style={styles.label}>दिनांक:</Text>
+                <Text style={[styles.value, { minWidth: 60 }]}>{data?.dateJoin || '---'}</Text>
+              </View>
             </View>
-           </View>
-    {/* ── Data rows (left 70%, photo takes right 22%) ── */}
-          <View style={styles.dataArea}>
 
-            {/* Row 1 - सदस्यता क्रमांक | जन्मतिथि */}
+            {/* Row 2 */}
             <View style={styles.row}>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>सदस्यता क्रमांक :</Text>
-                <Text style={styles.valueText}>{data?.registrationNumber}</Text>
+                <Text style={styles.label}>नाम:</Text>
+                <Text style={[styles.value, { minWidth: 150 }]}>{data?.displayName || '---'}</Text>
               </View>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>जन्मतिथि :</Text>
-                <Text style={styles.valueText}>{data?.bobDate}</Text>
+                <Text style={styles.label}>पिता/पति का नाम:</Text>
+                <Text style={[styles.value, { minWidth: 150 }]}>{data?.fatherName || '---'}</Text>
               </View>
             </View>
 
-            {/* Row 2 - नाम | आधार न */}
+            {/* Row 3 */}
             <View style={styles.row}>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>नाम :</Text>
-                <Text style={styles.valueText}>{data?.displayName}</Text>
+                <Text style={styles.label}>गोत्र:</Text>
+                <Text style={[styles.value, { minWidth: 90 }]}>{data?.gotra || '---'}</Text>
               </View>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>आधार न . :</Text>
-                <Text style={styles.valueText}>{data?.aadhaarNo}</Text>
+                <Text style={styles.label}>जाति:</Text>
+                <Text style={[styles.value, { minWidth:100}]}>{data?.jati || '---'}</Text>
+              </View>
+              <View style={styles.fieldGroup}>
+                <Text style={styles.label}>जन्म दि.:</Text>
+                <Text style={[styles.value, { minWidth: 110 }]}>{data?.bobDate || '---'}</Text>
               </View>
             </View>
 
-            {/* Row 3 - पिता/पति का नाम | उम्र */}
+            {/* Row 4 */}
             <View style={styles.row}>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>पिता/पति का नाम :</Text>
-                <Text style={styles.valueText}>{data?.fatherName}</Text>
+                <Text style={styles.label}>मोबाईल नंबर:</Text>
+                <Text style={[styles.value, { minWidth: 140 }]}>{data?.phone || '---'}</Text>
               </View>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>उम्र :</Text>
-                <Text style={styles.valueText}>{calculateAge(data.bobDate)}</Text>
+                <Text style={styles.label}>गाँव/शहर का नाम:</Text>
+                <Text style={[styles.value, { minWidth: 135 }]}>{data?.village || '---'}</Text>
               </View>
             </View>
 
-            {/* Row 4 - मोबाइल | वारिस आधार */}
+            {/* Row 5 */}
             <View style={styles.row}>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>मोबाइल नं . :</Text>
-                <Text style={styles.valueText}>{data?.phone}</Text>
+                <Text style={styles.label}>जिला:</Text>
+                <Text style={[styles.value, { minWidth: 160 }]}>{data?.district || '---'}</Text>
               </View>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>वारिस आधार :</Text>
-                <Text style={styles.valueText}>{data?.guardianAadharNo || 'xxxxxxxxxxx'}</Text>
+                <Text style={styles.label}>राज्य:</Text>
+                <Text style={[styles.value, { minWidth: 180 }]}>{data?.state || '---'}</Text>
               </View>
             </View>
 
-            {/* Row 5 - वारिसदार | सम्बन्ध */}
+            {/* Row 6 */}
             <View style={styles.row}>
-              <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>वारिसदार :</Text>
-                <Text style={styles.valueText}>{data?.guardian}</Text>
+                  <View style={styles.fieldGroup}>
+                <Text style={styles.label}>वारिसदार:</Text>
+                <Text style={[styles.value, { minWidth: 160 }]}>{data?.guardian  || '---'}</Text>
               </View>
               <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>सम्बन्ध :</Text>
-                <Text style={styles.valueText}>{data?.guardianRelation}</Text>
+                <Text style={styles.label}>प्रत्येक {selectedProgram?.isSuraksha?'देहांत':selectedProgram?.isMamera?"मायरा":'विवाह'} पर सहयोग राशि:</Text>
+                <Text style={[styles.value, { minWidth: 70}]}>
+                  {data?.payAmount || '0'}/-
+                </Text>
+                <Text style={styles.label}>रुपये</Text>
               </View>
             </View>
-
-            {/* Row 6 - जाति | निवास स्थान */}
-            <View style={styles.row}>
-              <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>जाति :</Text>
-                <Text style={styles.valueText}>{data?.jati}</Text>
-              </View>
-              <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>निवास स्थान :</Text>
-                <Text style={styles.valueText}>{data?.currentAddress}</Text>
-              </View>
-            </View>
-
-            {/* Row 7 - गांव | जिला & राज्य */}
-            <View style={styles.row}>
-              <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>गांव :</Text>
-                <Text style={styles.valueText}>{data?.village}</Text>
-              </View>
-              <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>जिला & राज्य :</Text>
-                <Text style={styles.valueText}>{data?.district} ({data?.state})</Text>
-              </View>
-            </View>
-
-            {/* Row 8 - क़िस्त + Org Stamp area */}
-            <View style={styles.kishtRow}>
-              <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>क़िस्त :</Text>
-                <Text style={[styles.valueText,{
-                  fontSize:9.5,
-                }]}>{data?.payAmount}/- रुपये प्रत्येक {selectedProgram?.isSuraksha?'देहांत':selectedProgram?.isMamera?"मायरा":'विवाह'} पर लागू !</Text>
-              </View>
-                <View style={styles.fieldGroup}>
-                <Text style={styles.labelText}>Agent :</Text>
-                <Text style={styles.valueText}>{data?.agentName || data?.addedByName}</Text>
-              </View>
-        
-            </View>
-
-      
-
-          </View>
-          {/* ══ end dataArea ══ */}
-      
-
           </View>
 
           {/* Details Section */}
-          {/* {
+          {
             selectedProgram?.noteLine && <View style={styles.detailsSection}>
             <Text style={{
             }}>
              {selectedProgram?.noteLine}
             </Text>
           </View>
-          } */}
+          }
        
 
           {/* Footer Section */}
           <View style={styles.footerSection}>
-
-
-          <View style={[styles.borderFooter]} />
-            
             {/* Left Side - Karyakarta */}
-            {/* <View style={styles.leftFooter}>
-              <Text style={styles.footerValue}>{data?.addedByName || '---'} ({data.agentPhone})</Text>
-              <Text style={styles.footerLabel}>कार्यकर्ता </Text>
-            </View> */}
+            <View style={styles.leftFooter}>
+              <Text style={styles.footerValue}>{data?.addedByName || '---'} ({data?.agentPhone})</Text>
+              <Text style={styles.footerLabel}>प्रतिनिधि </Text>
+            </View>
 
             {/* Right Side - Signature */}
-            {/* <View style={styles.rightFooter}>
-              <Text style={styles.footerValue}>राजेंद्र कुमार बाबूलाल घांची</Text>
-              <Text style={styles.footerLabel}>संस्थापक</Text>
-              <Text style={styles.signatureText}>हस्ताक्षर</Text>
-            </View> */}
-            <View style={styles.footerLabelBox1}>
-              <Text style={{
-                fontSize: 13,
-                color: '#000'
-                }}>
-                संस्था में योगदान के लिए आपको सह धन्यवाद
-              </Text>
-            </View>
-{/* 
-            <Text style={styles.signText}>
-              हस्ताक्षर
-            </Text> */}
-            <View style={styles.footerLabelBox2}>
-
-            <Text style={{
-              fontSize: 12,
-              color: '#884a17'
-            }}>
-              नोट: प्रमाण-पत्र संभाल कर रखें। यह आपकी सदस्यता का आधिकारिक दस्तावेज़ है।
-            </Text>
+            <View style={styles.rightFooter}>
+              <Image src={SingtureImg} style={styles.signImg} />
+              <Text style={styles.footerValue}></Text>
+              {/* <Text style={styles.signatureText}>हस्ताक्षर</Text> */}
+              <Text style={styles.footerLabel}>
+                
+                संस्था प्रधान हस्ताक्षर</Text>
             </View>
           </View>
         </View>
