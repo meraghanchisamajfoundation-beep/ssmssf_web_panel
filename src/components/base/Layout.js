@@ -29,7 +29,7 @@ const LoadingScreen = () => (
       /* Fake sidebar */
       .loading-sidebar {
         width: 72px;
-        background: linear-gradient(180deg, #0f172a 0%, #0a1020 100%);
+        background: linear-gradient(180deg,#c8860a 0%, #9a5000 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -41,7 +41,7 @@ const LoadingScreen = () => (
       .loading-sidebar-icon {
         width: 40px; height: 40px;
         border-radius: 10px;
-        background: linear-gradient(135deg, #1e3a5f, #172d4d);
+        background: linear-gradient(135deg, #9a5000, #c8860a);
       }
       .loading-sidebar-dot {
         width: 36px; height: 36px;
@@ -82,7 +82,7 @@ const LoadingScreen = () => (
       .spinner-ring {
         width: 20px; height: 20px;
         border: 2px solid rgba(59,130,246,0.2);
-        border-top-color: #3b82f6;
+        border-top-color: #c8860a;
         border-radius: 50%;
         animation: spin 0.7s linear infinite;
         flex-shrink: 0;

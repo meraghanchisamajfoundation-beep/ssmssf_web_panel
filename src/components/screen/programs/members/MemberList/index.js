@@ -232,6 +232,15 @@ const [loadingReport, setLoadingReport] = useState(false);
                 return <div className="font-semibold">{regNo || '-'}</div>;
             }
         },
+               { 
+            field: "applicationNumber", 
+            headerName: "Application Number", 
+            cellDataType: "text",
+            cellRenderer: (props) => {
+                const regNo = props.data.applicationNumber;
+                return <div className="font-semibold">{regNo || '-'}</div>;
+            }
+        },
         { field: "phone", headerName: "Phone", width: 120, cellDataType: "text" },
         { 
             field: "gender", 

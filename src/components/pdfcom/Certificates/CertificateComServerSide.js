@@ -363,7 +363,7 @@ const CertificateServerSide = ({data,selectedProgram}) => (
             }]}>
               <View style={styles.fieldGroup}>
                 <Text style={styles.label}>सदस्यता क्रमांक:</Text>
-                <Text style={[styles.value, { minWidth: 90 }]}>{data?.registrationNumber || '---'}</Text>
+                <Text style={[styles.value, { minWidth: 90 }]}>{data?.applicationNumber || data?.registrationNumber || '---'}</Text>
               </View>
               <View style={[styles.fieldGroup, { marginLeft: 20,marginRight:40 }]}>
                 <Text style={styles.label}>दिनांक:</Text>
